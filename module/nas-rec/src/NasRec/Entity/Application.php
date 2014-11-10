@@ -15,6 +15,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Application
 {
     /**
+     * @var int
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     */
+    protected $id;
+
+    /**
      * @var User
      * @ORM\ManyToOne(targetEntity="User", inversedBy="applications")
      */
