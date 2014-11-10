@@ -16,7 +16,7 @@ return array(
 
         // BetterCollective modules
         'Nascenia',
-//        'NasRec',
+        'NasRec',
 //        'NasRecAdmin',
 //        'NasRecPublic',
     ),
