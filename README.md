@@ -11,7 +11,7 @@ Nascenia Recruitment Tool
 2. Give write permissions to `<project-root>/data/`.
 3. Run `composer install` to install dependencies.
 4. Configure database information in `local.config.php` (see below).
-5. Run `bin/console d:s:u BcKgRad -f` to generate the database schema.
+5. Run `bin/console d:s:u NasRec -f` to generate the database schema.
 6. View your site in the browser!
 
 ## Sample `local.config.php`
