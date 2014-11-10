@@ -1,0 +1,23 @@
+{
+    "require": {
+        "php": ">=5.4",
+        "doctrine/orm": "2.*",
+        "radnan/rdn-doctrine": "1.*",
+        "radnan/rdn-exception": "1.*",
+        "radnan/rdn-router": "1.*",
+        "radnan/rdn-trailing-slash": "1.*",
+        "symfony/yaml": "2.*",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "NasRec\\": ["module/nas-rec/src/"],
+            "NasRecAdmin\\": ["module/nas-rec-admin/src/"],
+            "NasRecPublic\\": ["module/nas-rec-public/src/"],
+            "Nascenia\\": ["module/nascenia/src/"]
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
