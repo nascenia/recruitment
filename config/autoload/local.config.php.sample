@@ -1,0 +1,15 @@
+<?php
+
+return array(
+    'rdn_db_adapters' => array(
+        'adapters' => array(
+            'default' => array(
+                'driver'   => 'pdo_mysql',
+                'hostname' => '',
+                'username' => '',
+                'password' => '',
+                'database' => '',
+            ),
+        ),
+    ),
+);
