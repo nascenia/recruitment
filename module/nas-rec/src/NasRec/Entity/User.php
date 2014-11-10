@@ -32,13 +32,7 @@ class User
      * @var string
      * @ORM\Column(type="string")
      */
-    protected $firstName;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    protected $lastName;
+    protected $displayName;
 
     /**
      * @var bool
