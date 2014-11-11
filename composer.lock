@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f14a25dbfd44b439337713227523a3d3",
+    "hash": "2aa65f6ea82a8c502d1c8d63a5e35280",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -916,6 +916,56 @@
                 "zf2"
             ],
             "time": "2014-09-30 06:19:30"
+        },
+        {
+            "name": "radnan/rdn-upload",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/radnan/rdn-upload.git",
+                "reference": "8e5aa3b2c84be627d5f1dba9033007df6e2d8c63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/radnan/rdn-upload/zipball/8e5aa3b2c84be627d5f1dba9033007df6e2d8c63",
+                "reference": "8e5aa3b2c84be627d5f1dba9033007df6e2d8c63",
+                "shasum": ""
+            },
+            "require-dev": {
+                "knplabs/gaufrette": "*",
+                "mikey179/vfsstream": "*",
+                "phpunit/phpunit": "3.*",
+                "zendframework/zend-http": "2.*",
+                "zendframework/zend-mvc": "2.*",
+                "zendframework/zend-servicemanager": "2.*",
+                "zendframework/zend-stdlib": "2.*",
+                "zendframework/zend-view": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "RdnUpload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "radnan",
+                    "email": "rafiadnan47@gmail.com"
+                }
+            ],
+            "description": "Zend Framework 2 module to manage file uploads easily and securely",
+            "keywords": [
+                "cloud",
+                "file",
+                "upload",
+                "zend",
+                "zf2"
+            ],
+            "time": "2014-04-26 03:21:07"
         },
         {
             "name": "symfony/console",

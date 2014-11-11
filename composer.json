@@ -6,6 +6,7 @@
         "radnan/rdn-exception": "1.*",
         "radnan/rdn-router": "1.*",
         "radnan/rdn-trailing-slash": "1.*",
+        "radnan/rdn-upload": "2.*",
         "symfony/yaml": "2.*",
         "zendframework/zendframework": "2.*"
     },

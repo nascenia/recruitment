@@ -13,6 +13,7 @@ return array(
         'RdnException',
         'RdnRouter',
         'RdnTrailingSlash',
+        'RdnUpload',
 
         // BetterCollective modules
         'Nascenia',
