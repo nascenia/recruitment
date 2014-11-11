@@ -10,6 +10,12 @@ use Nascenia\Zend\Mvc\Application;
 $cacheEnabled = APP_ENV != Application::ENV_DEV && PHP_SAPI != 'cli';
 
 return array(
+    'controller_plugins' => array(
+        'factories' => array(
+            'auth' => 'Nascenia\Zend\Factory\Controller\Plugin\Auth',
+        ),
+    ),
+
     'nas_view_wrapper' => array(
         'template' => 'nascenia/wrapper',
     ),
@@ -39,6 +45,12 @@ return array(
     'rdn_event' => array(
         'listeners' => array(
             'Nascenia:ViewWrapper',
+        ),
+    ),
+
+    'service_manager' => array(
+        'factories' => array(
+            'Nascenia\Authentication\Authentication' => 'Nascenia\Zend\Factory\Authentication\Authentication',
         ),
     ),
 
