@@ -1,0 +1,33 @@
+routes:
+
+  nas-rec-public:
+      type: Literal
+      options:
+        route: /
+        defaults:
+          controller: NasRecPublic:Index
+          action: index
+      may_terminate: true
+      child_routes:
+
+        auth:
+          type: Literal
+          options:
+            route: auth
+            defaults:
+              controller: NasRecPublic:Auth
+          child_routes:
+
+            login:
+              type: Literal
+              options:
+                route: /login
+                defaults:
+                  action: login
+
+            logout:
+              type: Literal
+              options:
+                route: /logout
+                defaults:
+                  action: logout

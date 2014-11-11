@@ -18,7 +18,7 @@ return array(
         'Nascenia',
         'NasRec',
 //        'NasRecAdmin',
-//        'NasRecPublic',
+        'NasRecPublic',
     ),
     'module_listener_options' => array(
         /* Empty array so bin/console doesn't throw errors */
