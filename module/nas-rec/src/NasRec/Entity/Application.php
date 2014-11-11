@@ -14,6 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Application
 {
+    const STATUS_OPEN = 'open';
+    const STATUS_REVIEWED = 'reviewed';
+
     /**
      * @var int
      * @ORM\Column(type="integer")
@@ -21,6 +24,12 @@ class Application
      * @ORM\GeneratedValue
      */
     protected $id;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $status = self::STATUS_OPEN;
 
     /**
      * @var User
