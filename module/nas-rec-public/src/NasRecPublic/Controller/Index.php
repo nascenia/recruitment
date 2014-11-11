@@ -7,24 +7,31 @@
 
 namespace NasRecPublic\Controller;
 
+use NasRec\Entity;
+
 class Index extends AbstractController
 {
     public function indexAction()
     {
-        if ($user = $this->identity()) {
-            $openApps = $this->entity('NasRec:Application')->createQueryBuilder('a')
-                ->leftJoin('a.user', 'u')
-                ->andWhere('u = :user')
-                ->setParameter('user', $user)
+        $app = new Entity\Application;
+        $app->setCreatedAt(new \DateTime);
 
-                ->leftJoin('a.position', 'p')
-                ->andWhere('p.endDate >= :endDate')
-                ->setParameter('endDate', new \DateTime('-1 month'))
-            ;
+        $form = $this->form('NasRecPublic:Application');
+        $form->bind($app);
 
-            return array(
-                'openApps' => $openApps,
-            );
+        $postData = array_merge(
+            $this->request->getPost()->toArray()
+            , $this->request->getFiles()->toArray()
+        );
+        if ($this->request->isPost() && $form->isValid($postData)) {
+            $this->entity()->persist($app);
+            $this->entity()->flush();
+
+            return $this->redirect()->toRoute(null, array(), true);
         }
+
+        return array(
+            'form' => $form,
+        );
     }
 } 

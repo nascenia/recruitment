@@ -1,7 +1,4 @@
 <?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
+<?php /** @var NasRecPublic\Form\Application $form */ ?>
 
-<?php if ($user = $this->identity()): ?>
-    <a href="<?= $this->url('nas-rec-public/auth/logout') ?>">Logout</a>
-<?php else: ?>
-    <a href="<?= $this->url('nas-rec-public/auth/login') ?>">Login</a>
-<?php endif ?>
+<?= $this->form($form) ?>

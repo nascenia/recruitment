@@ -16,6 +16,9 @@ return array(
     ),
 
     'form_elements' => array(
+        'factories' => array(
+            'NasRecPublic:Application' => 'NasRecPublic\Factory\Form\Application',
+        ),
         'invokables' => array(
             'NasRecPublic:Login' => 'NasRecPublic\Form\Login',
         ),
