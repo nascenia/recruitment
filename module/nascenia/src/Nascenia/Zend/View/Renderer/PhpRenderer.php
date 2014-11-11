@@ -7,10 +7,13 @@
 
 namespace Nascenia\Zend\View\Renderer;
 
+use Zend\Form\View\Helper\Form;
+use Zend\View\Helper\HeadTitle;
 use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
 
 /**
- * @method headTitle() render <title> tag
+ * @method string|Form form(\Zend\Form\Form $form) render form object
+ * @method string|HeadTitle headTitle() render <title> tag
  */
 class PhpRenderer extends ZendPhpRenderer
 {

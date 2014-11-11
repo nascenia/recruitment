@@ -13,6 +13,7 @@ return array(
     'controller_plugins' => array(
         'factories' => array(
             'auth' => 'Nascenia\Zend\Factory\Controller\Plugin\Auth',
+            'form' => 'Nascenia\Zend\Factory\Controller\Plugin\Form',
         ),
     ),
 
