@@ -32,6 +32,12 @@ class User
      * @var string
      * @ORM\Column(type="string")
      */
+    protected $password;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
     protected $displayName;
 
     /**
@@ -79,22 +85,6 @@ class User
     }
 
     /**
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @param string $firstName
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-    }
-
-    /**
      * @return int
      */
     public function getId()
@@ -129,16 +119,33 @@ class User
     /**
      * @return string
      */
-    public function getLastName()
+    public function getDisplayName()
     {
-        return $this->lastName;
+        return $this->displayName;
     }
 
     /**
-     * @param string $lastName
+     * @param string $displayName
      */
-    public function setLastName($lastName)
+    public function setDisplayName($displayName)
     {
-        $this->lastName = $lastName;
+        $this->displayName = $displayName;
     }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 }
