@@ -16,10 +16,10 @@ use Zend\View\Model\ViewModel;
 class ViewWrapper extends AbstractListener
 {
     public function attach(EventManagerInterface $events) {
-        $events->attach(MvcEvent::EVENT_RENDER, array($this, 'onDispatch'), -1000);
+        $events->attach(MvcEvent::EVENT_RENDER, array($this, 'onRender'), -1000);
     }
 
-    public function onDispatch(MvcEvent $event) {
+    public function onRender(MvcEvent $event) {
         $app = $event->getApplication();
         $services = $app->getServiceManager();
 
