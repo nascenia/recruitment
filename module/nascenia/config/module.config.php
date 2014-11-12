@@ -55,6 +55,12 @@ return array(
         ),
     ),
 
+    'view_helpers' => array(
+        'invokables' => array(
+            'formRow' => 'Nascenia\Zend\View\Helper\FormRow',
+        ),
+    ),
+
     'view_manager' => array(
         'controller_map' => array(
             'Nascenia\Controller' => 'nascenia/mvc',
