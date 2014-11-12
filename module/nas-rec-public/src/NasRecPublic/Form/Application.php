@@ -31,20 +31,6 @@ class Application extends Form
         $this->setHydrator($hydrator);
 
         $this->add(array(
-            'type' => 'email',
-            'name' => 'email',
-
-            'options' => array(
-                'label' => 'Email',
-            ),
-
-            'attributes' => array(
-                'class' => 'form-control',
-                'size' => 32,
-            ),
-        ));
-
-        $this->add(array(
             'type' => 'text',
             'name' => 'displayName',
 
@@ -55,6 +41,20 @@ class Application extends Form
             'attributes' => array(
                 'class' => 'form-control',
                 'size' => 48,
+            ),
+        ));
+
+        $this->add(array(
+            'type' => 'email',
+            'name' => 'email',
+
+            'options' => array(
+                'label' => 'Email',
+            ),
+
+            'attributes' => array(
+                'class' => 'form-control',
+                'size' => 32,
             ),
         ));
 
