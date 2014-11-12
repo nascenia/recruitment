@@ -11,8 +11,9 @@ use Doctrine\ORM\EntityRepository;
 use NasRec\Entity;
 use Nascenia\Zend\Hydrator;
 use Nascenia\Zend\Form\Fieldset\Fieldset;
+use Zend\InputFilter\InputFilterProviderInterface;
 
-class User extends Fieldset
+class User extends Fieldset implements InputFilterProviderInterface
 {
     /**
      * @var EntityRepository
@@ -59,4 +60,23 @@ class User extends Fieldset
             ),
         ));
     }
-} 
+
+    /**
+     * Should return an array specification compatible with
+     * {@link Zend\InputFilter\Factory::createInputFilter()}.
+     *
+     * @return array
+     */
+    public function getInputFilterSpecification()
+    {
+        return array(
+            'displayName' => array(
+                'required' => true,
+            ),
+
+            'email' => array(
+                'required' => true,
+            ),
+        );
+    }
+}
