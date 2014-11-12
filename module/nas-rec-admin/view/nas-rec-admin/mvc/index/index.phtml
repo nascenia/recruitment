@@ -10,6 +10,7 @@
             <th>Email</th>
             <th>Position</th>
             <th>Date</th>
+            <th>Resume</th>
         </tr>
     </thead>
 
@@ -30,6 +31,9 @@
                 <td><?= $application->getUser()->getEmail() ?></td>
                 <td><?= $application->getPosition()->getName() ?></td>
                 <td><?= $application->getCreatedAt()->format('d M, Y') ?></td>
+                <td>
+                    <a href="<?= $this->uploads()->get($application->getResume()) ?>">View Resume</a>
+                </td>
             </tr>
         <?php endforeach ?>
     </tbody>
