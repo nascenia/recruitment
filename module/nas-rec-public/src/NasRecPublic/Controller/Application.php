@@ -27,6 +27,8 @@ class Application extends AbstractController
             $this->entity()->persist($app);
             $this->entity()->flush();
 
+            $this->flashMessenger()->addSuccessMessage('Thank you for submitting your application!');
+
             return $this->redirect()->toRoute(null, array(), true);
         }
 
