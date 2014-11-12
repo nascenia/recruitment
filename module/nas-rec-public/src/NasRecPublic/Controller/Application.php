@@ -29,6 +29,7 @@ class Application extends AbstractController
 
             $this->flashMessenger()->addSuccessMessage('Thank you for submitting your application!');
 
+            // todo - should we redirect to someplace else?
             return $this->redirect()->toRoute(null, array(), true);
         }
 
