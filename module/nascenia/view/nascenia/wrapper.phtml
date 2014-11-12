@@ -1,14 +1,33 @@
 <?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
 
+<?php $this->headLink()->appendStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css') ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <?= $this->headTitle() ?>
+    <?= $this->headLink() ?>
+    <?= $this->headStyle() ?>
+    <?= $this->headScript() ?>
 </head>
 
 <body>
-    <?= $content ?>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="<?= $this->url('nas-rec-public') ?>">Nascenia Recruitment System</a>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <div class="container">
+            <?= $content ?>
+        </div>
+    </div>
+
+    <?= $this->inlineScript() ?>
 </body>
 
 </html>
