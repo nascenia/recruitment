@@ -20,6 +20,7 @@ return array(
             'NasRecPublic:Application' => 'NasRecPublic\Factory\Form\Application',
 
             'NasRecPublic:Fieldset:Position' => 'NasRecPublic\Factory\Form\Fieldset\Position',
+            'NasRecPublic:Fieldset:User' => 'NasRecPublic\Factory\Form\Fieldset\User',
         ),
         'invokables' => array(
             'NasRecPublic:Login' => 'NasRecPublic\Form\Login',

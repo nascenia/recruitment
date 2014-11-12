@@ -19,9 +19,9 @@ class Position extends Fieldset
      */
     protected $positions;
 
-    public function __construct(EntityRepository $positions)
+    public function __construct(EntityRepository $users)
     {
-        $this->positions = $positions;
+        $this->positions = $users;
 
         parent::__construct();
     }

@@ -36,31 +36,8 @@ class Application extends Form
         ));
 
         $this->add(array(
-            'type' => 'text',
-            'name' => 'displayName',
-
-            'options' => array(
-                'label' => 'Name',
-            ),
-
-            'attributes' => array(
-                'class' => 'form-control',
-                'size' => 48,
-            ),
-        ));
-
-        $this->add(array(
-            'type' => 'email',
-            'name' => 'email',
-
-            'options' => array(
-                'label' => 'Email',
-            ),
-
-            'attributes' => array(
-                'class' => 'form-control',
-                'size' => 32,
-            ),
+            'type' => 'NasRecPublic:Fieldset:User',
+            'name' => 'user',
         ));
 
         $this->add(array(

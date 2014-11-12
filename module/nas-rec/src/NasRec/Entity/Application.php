@@ -39,7 +39,7 @@ class Application
 
     /**
      * @var User
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="Position")
      */
     protected $position;
 
