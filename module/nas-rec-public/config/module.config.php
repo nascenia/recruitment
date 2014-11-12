@@ -10,7 +10,6 @@ use Symfony\Component\Yaml\Yaml;
 return array(
     'controllers' => array(
         'invokables' => array(
-            'NasRecPublic:Auth' => 'NasRecPublic\Controller\Auth',
             'NasRecPublic:Application' => 'NasRecPublic\Controller\Application',
         ),
     ),
