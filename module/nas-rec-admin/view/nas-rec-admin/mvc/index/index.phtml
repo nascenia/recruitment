@@ -1,0 +1,36 @@
+<?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
+<?php /** @var NasRec\Entity\Application[] $applications */ ?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php if (count($applications) == 0): ?>
+            <tr>
+                <td colspan="6">
+                    <em>There are currently no applications for review.</em>
+                </td>
+            </tr>
+        <?php endif ?>
+
+        <?php foreach ($applications as $application): ?>
+            <tr>
+                <td><?= $application->getId() ?></td>
+                <td><?= $application->getStatus() ?></td>
+                <td><?= $application->getUser()->getDisplayName() ?></td>
+                <td><?= $application->getUser()->getEmail() ?></td>
+                <td><?= $application->getPosition()->getName() ?></td>
+                <td><?= $application->getCreatedAt()->format('d M, Y') ?></td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>

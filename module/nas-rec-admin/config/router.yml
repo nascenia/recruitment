@@ -1,0 +1,25 @@
+routes:
+
+  nas-rec-admin:
+      type: Literal
+      options:
+        route: /admin
+        defaults:
+          controller: NasRecAdmin:Index
+          action: index
+      may_terminate: true
+      child_routes:
+
+        application:
+          type: Literal
+          options:
+            route: /application
+            defaults:
+              controller: NasRecAdmin:Application
+
+        position:
+          type: Literal
+          options:
+            route: /position
+            defaults:
+              controller: NasRecAdmin:Position

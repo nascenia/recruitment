@@ -14,8 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Application
 {
-    const STATUS_OPEN = 'open';
-    const STATUS_REVIEWED = 'reviewed';
+    const STATUS_OPEN = 'Open';
+    const STATUS_IN_REVIEW = 'In Review';
+    const STATUS_DECISION_PENDING = 'Decision Pending';
+    const STATUS_HIRED = 'Hired';
+    const STATUS_REJECTED = 'Rejected';
+    const STATUS_RECOMMENDED_FOR_FUTURE = 'Recommended for Future';
 
     /**
      * @var int
