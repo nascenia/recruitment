@@ -38,7 +38,7 @@ class Application
     protected $user;
 
     /**
-     * @var User
+     * @var Position
      * @ORM\ManyToOne(targetEntity="Position")
      */
     protected $position;
@@ -56,7 +56,7 @@ class Application
     protected $createdAt;
 
     /**
-     * @return User
+     * @return Position
      */
     public function getPosition()
     {
@@ -64,7 +64,7 @@ class Application
     }
 
     /**
-     * @param User $position
+     * @param Position $position
      */
     public function setPosition($position)
     {
