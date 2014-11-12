@@ -18,6 +18,8 @@ return array(
     'form_elements' => array(
         'factories' => array(
             'NasRecPublic:Application' => 'NasRecPublic\Factory\Form\Application',
+
+            'NasRecPublic:Fieldset:Position' => 'NasRecPublic\Factory\Form\Fieldset\Position',
         ),
         'invokables' => array(
             'NasRecPublic:Login' => 'NasRecPublic\Form\Login',

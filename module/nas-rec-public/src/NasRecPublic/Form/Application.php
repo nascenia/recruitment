@@ -31,6 +31,11 @@ class Application extends Form
         $this->setHydrator($hydrator);
 
         $this->add(array(
+            'type' => 'NasRecPublic:Fieldset:Position',
+            'name' => 'position',
+        ));
+
+        $this->add(array(
             'type' => 'text',
             'name' => 'displayName',
 
@@ -72,6 +77,7 @@ class Application extends Form
             'name' => 'submit',
 
             'attributes' => array(
+                'class' => 'btn btn-primary',
                 'value' => 'Submit',
             ),
         ));
