@@ -7,6 +7,7 @@
 
 namespace NasRecPublic\Form;
 
+use Doctrine\ORM\EntityRepository;
 use Nascenia\Zend\Form\Form;
 use Nascenia\Zend\Hydrator;
 use RdnUpload\ContainerInterface;
@@ -15,10 +16,19 @@ use Zend\InputFilter\InputFilterProviderInterface;
 
 class Application extends Form implements InputFilterProviderInterface
 {
+    /**
+     * @var EntityRepository
+     */
+    protected $applications;
+
+    /**
+     * @var ContainerInterface
+     */
     protected $uploads;
 
-    public function __construct(ContainerInterface $uploads)
+    public function __construct(EntityRepository $applications, ContainerInterface $uploads)
     {
+        $this->applications = $applications;
         $this->uploads = $uploads;
 
         parent::__construct();
@@ -70,7 +80,36 @@ class Application extends Form implements InputFilterProviderInterface
     public function getInputFilterSpecification()
     {
         return array(
-            // todo - ensure no previous application for this position
+            'position' => array(
+                'type' => 'InputFilter',
+                'id' => array(
+                    'validators' => array(
+                        array(
+                            'name' => 'callback',
+                            'options' => array(
+                                'callback' => function () {
+                                    $previousApp = $this->applications->createQueryBuilder('a')
+                                        ->leftJoin('a.user', 'u')
+                                        ->where('u.email = :email')
+                                        ->setParameter('email', $this->data['user']['email'])
+
+                                        ->leftJoin('a.position', 'p')
+                                        ->where('p.id = :pid')
+                                        ->setParameter('pid', $this->data['position']['id'])
+
+                                        ->getQuery()
+                                        ->getOneOrNullResult()
+                                    ;
+
+                                    return $previousApp == null;
+                                },
+                                'message' => 'You have already submitted an application for this position',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+
             'resume' => array(
                 'required' => true,
             ),
