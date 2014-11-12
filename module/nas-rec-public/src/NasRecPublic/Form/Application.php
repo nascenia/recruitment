@@ -11,8 +11,9 @@ use Nascenia\Zend\Form\Form;
 use Nascenia\Zend\Hydrator;
 use RdnUpload\ContainerInterface;
 use RdnUpload\Hydrator\Strategy;
+use Zend\InputFilter\InputFilterProviderInterface;
 
-class Application extends Form
+class Application extends Form implements InputFilterProviderInterface
 {
     protected $uploads;
 
@@ -59,4 +60,20 @@ class Application extends Form
             ),
         ));
     }
-} 
+
+    /**
+     * Should return an array specification compatible with
+     * {@link Zend\InputFilter\Factory::createInputFilter()}.
+     *
+     * @return array
+     */
+    public function getInputFilterSpecification()
+    {
+        return array(
+            // todo - ensure no previous application for this position
+            'resume' => array(
+                'required' => true,
+            ),
+        );
+    }
+}
