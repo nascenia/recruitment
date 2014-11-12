@@ -5,8 +5,8 @@ routes:
       options:
         route: /
         defaults:
-          controller: NasRecPublic:Index
-          action: index
+          controller: NasRecPublic:Application
+          action: create
       may_terminate: true
       child_routes:
 

@@ -9,9 +9,9 @@ namespace NasRecPublic\Controller;
 
 use NasRec\Entity;
 
-class Index extends AbstractController
+class Application extends AbstractController
 {
-    public function indexAction()
+    public function createAction()
     {
         $app = new Entity\Application;
         $app->setCreatedAt(new \DateTime);

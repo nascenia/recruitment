@@ -11,7 +11,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'NasRecPublic:Auth' => 'NasRecPublic\Controller\Auth',
-            'NasRecPublic:Index' => 'NasRecPublic\Controller\Index',
+            'NasRecPublic:Application' => 'NasRecPublic\Controller\Application',
         ),
     ),
 
