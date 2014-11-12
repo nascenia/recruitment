@@ -94,8 +94,10 @@ class Application extends Form implements InputFilterProviderInterface
                                         ->setParameter('email', $this->data['user']['email'])
 
                                         ->leftJoin('a.position', 'p')
-                                        ->where('p.id = :pid')
+                                        ->andWhere('p.id = :pid')
                                         ->setParameter('pid', $this->data['position']['id'])
+
+                                        ->setMaxResults(1)
 
                                         ->getQuery()
                                         ->getOneOrNullResult()
