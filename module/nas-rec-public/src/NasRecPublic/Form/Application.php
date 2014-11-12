@@ -39,6 +39,7 @@ class Application extends Form
             ),
 
             'attributes' => array(
+                'class' => 'form-control',
                 'size' => 32,
             ),
         ));
@@ -52,6 +53,7 @@ class Application extends Form
             ),
 
             'attributes' => array(
+                'class' => 'form-control',
                 'size' => 48,
             ),
         ));
