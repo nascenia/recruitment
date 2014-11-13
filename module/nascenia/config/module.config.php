@@ -58,6 +58,9 @@ return array(
     ),
 
     'view_helpers' => array(
+        'factories' => array(
+            'route' => 'Nascenia\Zend\Factory\View\Helper\Route',
+        ),
         'invokables' => array(
             'formRow' => 'Nascenia\Zend\View\Helper\FormRow',
         ),
