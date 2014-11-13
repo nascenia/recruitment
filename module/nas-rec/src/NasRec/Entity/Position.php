@@ -7,6 +7,9 @@
 
 namespace NasRec\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,6 +36,17 @@ class Position
      * @ORM\Column(type="datetime")
      */
     protected $endDate;
+
+    /**
+     * @var Collection|Application[]
+     * @ORM\OneToMany(targetEntity="Application", mappedBy="position")
+     */
+    protected $applications;
+
+    public function __construct()
+    {
+        $this->applications = new ArrayCollection;
+    }
 
     /**
      * @return \DateTime
@@ -80,5 +94,31 @@ class Position
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return Collection|Application[]
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
+     * @param Collection|Application[] $applications
+     */
+    public function setApplications($applications)
+    {
+        $this->applications = $applications;
+    }
+
+    public function getOpenApplications()
+    {
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->eq('status', Application::STATUS_OPEN))
+            ->orWhere(Criteria::expr()->eq('status', Application::STATUS_IN_REVIEW))
+            ->orWhere(Criteria::expr()->eq('status', Application::STATUS_DECISION_PENDING))
+        ;
+        return $this->applications->matching($criteria);
     }
 }

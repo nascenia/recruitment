@@ -7,6 +7,8 @@
 
 namespace NasRec\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,13 +49,18 @@ class User
     protected $isAdmin = false;
 
     /**
-     * @var Application[]
+     * @var Collection|Application[]
      * @ORM\OneToMany(targetEntity="Application", mappedBy="user")
      */
     protected $applications;
 
+    public function __construct()
+    {
+        $this->applications = new ArrayCollection;
+    }
+
     /**
-     * @return Application[]
+     * @return Collection|Application[]
      */
     public function getApplications()
     {
@@ -61,7 +68,7 @@ class User
     }
 
     /**
-     * @param Application[] $applications
+     * @param Collection|Application[] $applications
      */
     public function setApplications($applications)
     {

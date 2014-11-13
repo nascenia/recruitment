@@ -43,7 +43,7 @@ class Application
 
     /**
      * @var Position
-     * @ORM\ManyToOne(targetEntity="Position")
+     * @ORM\ManyToOne(targetEntity="Position", inversedBy="applications")
      */
     protected $position;
 
