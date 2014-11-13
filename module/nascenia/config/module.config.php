@@ -39,12 +39,14 @@ return array(
 
     'rdn_event_listeners' => array(
         'invokables' => array(
+            'Nascenia:Layout' => 'Nascenia\Zend\Listener\Layout',
             'Nascenia:ViewWrapper' => 'Nascenia\Zend\Listener\ViewWrapper',
         ),
     ),
 
     'rdn_event' => array(
         'listeners' => array(
+            'Nascenia:Layout',
             'Nascenia:ViewWrapper',
         ),
     ),

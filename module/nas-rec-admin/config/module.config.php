@@ -14,6 +14,10 @@ return array(
         ),
     ),
 
+    'nas_view_layouts' => array(
+        'NasRecAdmin' => 'nas-rec-admin/layout',
+    ),
+
     'rdn_entity_managers' => array(
         'modules' => array(
             'NasRecAdmin' => 'NasRec',
