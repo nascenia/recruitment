@@ -9,6 +9,7 @@ namespace NasRec\Authentication\Identity;
 
 use Nascenia\Zend\Authentication\Authentication;
 use Nascenia\Zend\Controller\AbstractController;
+use Zend\Session\Container;
 
 class IdentityProvider
 {
@@ -33,6 +34,9 @@ class IdentityProvider
         $identity = $this->auth->getIdentity();
 
         if (!$identity && $forced) {
+            $session = new Container('NasRecPublic_Auth');
+            $session->url = $_SERVER['REQUEST_URI'];
+
             $this->controller->redirect()->toRoute('nas-rec-public/auth/login');
         }
 
