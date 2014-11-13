@@ -24,6 +24,10 @@ class Application extends AbstractController
             , $this->request->getFiles()->toArray()
         );
         if ($this->request->isPost() && $form->isValid($postData)) {
+            if (!$app->getUser()->getId()) {
+                $this->initializeUser($app->getUser());
+            }
+
             $this->entity()->persist($app);
             $this->entity()->flush();
 
@@ -36,5 +40,16 @@ class Application extends AbstractController
         return array(
             'form' => $form,
         );
+    }
+
+    protected function initializeUser(Entity\User $user)
+    {
+        $password = bin2hex(openssl_random_pseudo_bytes(8));
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+
+        $email = $user->getEmail();
+        if (preg_match('/@(nascenia|bdipo).com$/', $email)) {
+            $user->setIsAdmin(true);
+        }
     }
 } 
