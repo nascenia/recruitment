@@ -37,7 +37,7 @@ class Application
 
     /**
      * @var User
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="applications")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="applications", cascade={"persist"})
      */
     protected $user;
 
