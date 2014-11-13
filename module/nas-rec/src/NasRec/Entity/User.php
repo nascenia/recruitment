@@ -44,7 +44,7 @@ class User
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    protected $isAdmin;
+    protected $isAdmin = false;
 
     /**
      * @var Application[]
@@ -103,7 +103,7 @@ class User
     /**
      * @return boolean
      */
-    public function isIsAdmin()
+    public function isAdmin()
     {
         return $this->isAdmin;
     }
