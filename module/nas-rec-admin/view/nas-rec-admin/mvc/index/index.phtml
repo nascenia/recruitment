@@ -28,10 +28,10 @@
                 <td><?= $application->getStatus() ?></td>
                 <td>
                     <a href="<?= $this->url('nas-rec-admin/application/view', array('application-id' => $application->getId())) ?>">
-                        <?= $application->getUser()->getDisplayName() ?>
+                        <?= $this->escapeHtml($application->getUser()->getDisplayName()) ?>
                     </a>
                     <br/>
-                    <?= $application->getUser()->getEmail() ?>
+                    <?= $this->escapeHtml($application->getUser()->getEmail()) ?>
                 </td>
                 <td><?= $application->getPosition()->getName() ?></td>
                 <td><?= $application->getCreatedAt()->format('d M Y') ?></td>
