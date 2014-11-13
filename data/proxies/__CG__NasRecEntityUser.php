@@ -246,12 +246,12 @@ class User extends \NasRec\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function isIsAdmin()
+    public function isAdmin()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isIsAdmin', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isAdmin', array());
 
-        return parent::isIsAdmin();
+        return parent::isAdmin();
     }
 
     /**

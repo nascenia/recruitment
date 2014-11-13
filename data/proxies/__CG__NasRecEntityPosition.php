@@ -64,10 +64,10 @@ class Position extends \NasRec\Entity\Position implements \Doctrine\ORM\Proxy\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'startDate', 'endDate');
+            return array('__isInitialized__', 'id', 'name', 'endDate');
         }
 
-        return array('__isInitialized__', 'id', 'name', 'startDate', 'endDate');
+        return array('__isInitialized__', 'id', 'name', 'endDate');
     }
 
     /**
@@ -241,28 +241,6 @@ class Position extends \NasRec\Entity\Position implements \Doctrine\ORM\Proxy\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
 
         return parent::setName($name);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getStartDate()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStartDate', array());
-
-        return parent::getStartDate();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setStartDate($startDate)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStartDate', array($startDate));
-
-        return parent::setStartDate($startDate);
     }
 
 }
