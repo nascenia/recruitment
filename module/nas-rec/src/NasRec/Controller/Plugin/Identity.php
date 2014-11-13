@@ -22,8 +22,8 @@ class Identity extends AbstractPlugin
         $this->identityProvider = $identityProvider;
     }
 
-    public function __invoke()
+    public function __invoke($forced = false)
     {
-        return $this->identityProvider->getIdentity();
+        return $this->identityProvider->getIdentity($forced);
     }
-} 
+}

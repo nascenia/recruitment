@@ -8,6 +8,7 @@
 namespace NasRec\Authentication\Identity;
 
 use Nascenia\Zend\Authentication\Authentication;
+use Nascenia\Zend\Controller\AbstractController;
 
 class IdentityProvider
 {
@@ -16,20 +17,31 @@ class IdentityProvider
      */
     protected $auth;
 
-    public function __construct(Authentication $auth)
+    /**
+     * @var AbstractController
+     */
+    protected $controller;
+
+    public function __construct(Authentication $auth, AbstractController $controller)
     {
         $this->auth = $auth;
+        $this->controller = $controller;
     }
 
-    public function getAuthenticatedIdentity()
+    public function getAuthenticatedIdentity($forced = false)
     {
         $identity = $this->auth->getIdentity();
+
+        if (!$identity && $forced) {
+            $this->controller->redirect()->toRoute('nas-rec-public/auth/login');
+        }
+
         return $identity;
     }
 
-    public function getIdentity()
+    public function getIdentity($forced = false)
     {
-        $identity = $this->getAuthenticatedIdentity();
+        $identity = $this->getAuthenticatedIdentity($forced);
         return $identity;
     }
 

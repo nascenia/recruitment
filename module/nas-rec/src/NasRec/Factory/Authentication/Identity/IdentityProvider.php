@@ -14,6 +14,9 @@ class IdentityProvider extends AbstractFactory
 {
     protected function create()
     {
-        return new Identity\IdentityProvider($this->service('Nascenia\Authentication\Authentication'));
+        return new Identity\IdentityProvider(
+            $this->service('Nascenia\Authentication\Authentication')
+            , $this->controller('NasRecPublic:Auth')
+        );
     }
 }

@@ -12,6 +12,18 @@ return array(
         ),
     ),
 
+    'rdn_event_listeners' => array(
+        'invokables' => array(
+            'NasRec:Authorization' => 'NasRec\Listener\Authorization',
+        ),
+    ),
+
+    'rdn_event' => array(
+        'listeners' => array(
+            'NasRec:Authorization',
+        ),
+    ),
+
     'service_manager' => array(
         'factories' => array(
             'NasRec\Authentication\Identity\IdentityProvider' => 'NasRec\Factory\Authentication\Identity\IdentityProvider',

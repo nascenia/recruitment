@@ -25,7 +25,6 @@ routes:
                 defaults:
                   action: view
 
-
         position:
           type: Literal
           options:
