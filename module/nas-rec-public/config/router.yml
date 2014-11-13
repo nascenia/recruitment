@@ -7,3 +7,20 @@ routes:
         defaults:
           controller: NasRecPublic:Application
           action: create
+      may_terminate: true
+      child_routes:
+
+        auth:
+          type: Literal
+          options:
+            route: auth
+            defaults:
+              controller: NasRecPublic:Auth
+          child_routes:
+
+            login:
+              type: Literal
+              options:
+                route: /login
+                defaults:
+                  action: login
