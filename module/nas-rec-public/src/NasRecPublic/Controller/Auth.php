@@ -34,4 +34,10 @@ class Auth extends AbstractController
             'form' => $form,
         );
     }
+
+    public function logoutAction()
+    {
+        $this->auth()->clearIdentity();
+        return $this->redirect()->toRoute('nas-rec-public');
+    }
 } 
