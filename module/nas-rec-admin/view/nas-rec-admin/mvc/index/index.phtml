@@ -34,7 +34,7 @@
                     <?= $application->getUser()->getEmail() ?>
                 </td>
                 <td><?= $application->getPosition()->getName() ?></td>
-                <td><?= $application->getCreatedAt()->format('d M, Y') ?></td>
+                <td><?= $application->getCreatedAt()->format('d M Y') ?></td>
                 <td>
                     <a href="<?= $this->uploads()->get($application->getResume()) ?>">View Resume</a>
                 </td>
