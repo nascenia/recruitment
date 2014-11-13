@@ -23,7 +23,7 @@
         <?php foreach ($positions as $position): ?>
             <tr>
                 <td><?= $position->getId() ?></td>
-                <td><?= $position->getName() ?> (<?= $position->getEndDate()->format('M Y') ?>)</td>
+                <td><?= $position->getDisplayName() ?></td>
                 <td><?= $position->getEndDate()->format('d M Y') ?></td>
                 <td><?= count($position->getOpenApplications()) ?></td>
                 <td>

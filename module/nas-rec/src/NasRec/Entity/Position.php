@@ -121,4 +121,9 @@ class Position
         ;
         return $this->applications->matching($criteria);
     }
+
+    public function getDisplayName()
+    {
+        return $this->name .' ('. $this->endDate->format('M Y') .')';
+    }
 }
