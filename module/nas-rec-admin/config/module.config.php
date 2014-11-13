@@ -11,6 +11,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'NasRecAdmin:Index' => 'NasRecAdmin\Controller\Index',
+            'NasRecAdmin:Position' => 'NasRecAdmin\Controller\Position',
         ),
     ),
 

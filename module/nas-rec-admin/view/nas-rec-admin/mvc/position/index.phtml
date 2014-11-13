@@ -1,0 +1,38 @@
+<?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
+<?php /** @var NasRec\Entity\Position[] $positions */ ?>
+
+<p>
+    <a class="btn btn-primary pull-right" href="">
+        <i class="fa fa-plus"></i>
+        Create Job Listing
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>End Date</th>
+            <th>Open Applications</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach ($positions as $position): ?>
+            <tr>
+                <td><?= $position->getId() ?></td>
+                <td><?= $position->getName() ?> (<?= $position->getEndDate()->format('M Y') ?>)</td>
+                <td><?= $position->getEndDate()->format('d M Y') ?></td>
+                <td><?= count($position->getOpenApplications()) ?></td>
+                <td>
+                    <a class="btn btn-default"
+                       href="<?= $this->url('nas-rec-admin/position/edit', ['position-id' => $position->getId()]) ?>">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>

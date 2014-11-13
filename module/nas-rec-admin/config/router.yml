@@ -32,3 +32,12 @@ routes:
             route: /position
             defaults:
               controller: NasRecAdmin:Position
+          may_terminate: true
+          child_routes:
+
+            edit:
+              type: Segment
+              options:
+                route: /:position-id/edit
+                defaults:
+                  action: edit
