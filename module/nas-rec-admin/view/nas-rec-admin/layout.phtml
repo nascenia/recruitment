@@ -1,8 +1,18 @@
 <?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
 
+<?php
+$positionMatch = $this->route()->matches('nas-rec-admin/position');
+?>
+
 <ul class="nav nav-tabs" role="tablist">
-    <li><a href="<?= $this->url('nas-rec-admin') ?>">Admin Home</a></li>
-    <li><a href="<?= $this->url('nas-rec-admin/position') ?>">Job Listings</a></li>
+    <li class="<?= (!$positionMatch) ? 'active' : '' ?>">
+        <a href="<?= $this->url('nas-rec-admin') ?>">Admin Home</a>
+    </li>
+    <li class="<?= $positionMatch ? 'active' : '' ?>">
+        <a href="<?= $this->url('nas-rec-admin/position') ?>">Job Listings</a>
+    </li>
 </ul>
+
+<br/>
 
 <?= $content ?>
