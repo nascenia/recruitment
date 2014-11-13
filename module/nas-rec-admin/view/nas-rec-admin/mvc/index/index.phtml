@@ -7,7 +7,6 @@
             <th>#</th>
             <th>Status</th>
             <th>Name</th>
-            <th>Email</th>
             <th>Position</th>
             <th>Date</th>
             <th>Resume</th>
@@ -17,7 +16,7 @@
     <tbody>
         <?php if (count($applications) == 0): ?>
             <tr>
-                <td colspan="6">
+                <td colspan="5">
                     <em>There are currently no applications for review.</em>
                 </td>
             </tr>
@@ -27,8 +26,13 @@
             <tr>
                 <td><?= $application->getId() ?></td>
                 <td><?= $application->getStatus() ?></td>
-                <td><?= $application->getUser()->getDisplayName() ?></td>
-                <td><?= $application->getUser()->getEmail() ?></td>
+                <td>
+                    <a href="<?= $this->url('nas-rec-admin/application/view', array('application-id' => $application->getId())) ?>">
+                        <?= $application->getUser()->getDisplayName() ?>
+                    </a>
+                    <br/>
+                    <?= $application->getUser()->getEmail() ?>
+                </td>
                 <td><?= $application->getPosition()->getName() ?></td>
                 <td><?= $application->getCreatedAt()->format('d M, Y') ?></td>
                 <td>

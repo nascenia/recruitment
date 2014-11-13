@@ -16,6 +16,15 @@ routes:
             route: /application
             defaults:
               controller: NasRecAdmin:Application
+          child_routes:
+
+            view:
+              type: Segment
+              options:
+                route: /:application-id/view
+                defaults:
+                  action: view
+
 
         position:
           type: Literal
