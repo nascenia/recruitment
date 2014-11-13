@@ -32,12 +32,6 @@ class Position
      * @var \DateTime
      * @ORM\Column(type="datetime")
      */
-    protected $startDate;
-
-    /**
-     * @var \DateTime
-     * @ORM\Column(type="datetime")
-     */
     protected $endDate;
 
     /**
@@ -86,21 +80,5 @@ class Position
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStartDate()
-    {
-        return $this->startDate;
-    }
-
-    /**
-     * @param mixed $startDate
-     */
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
     }
 }
