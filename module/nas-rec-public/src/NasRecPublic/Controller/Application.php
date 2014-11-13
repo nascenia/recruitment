@@ -31,6 +31,8 @@ class Application extends AbstractController
             $this->entity()->persist($app);
             $this->entity()->flush();
 
+            // todo send email
+
             $this->flashMessenger()->addSuccessMessage('Thank you for submitting your application!');
 
             // todo - should we redirect to someplace else?
@@ -45,6 +47,7 @@ class Application extends AbstractController
     protected function initializeUser(Entity\User $user)
     {
         $password = bin2hex(openssl_random_pseudo_bytes(8));
+        $password = 'password';
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
 
         $email = $user->getEmail();
