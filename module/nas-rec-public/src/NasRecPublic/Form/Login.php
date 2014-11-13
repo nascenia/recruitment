@@ -18,10 +18,12 @@ class Login extends Form
             'name' => 'email',
 
             'options' => array(
-                'label' => 'Email',
+                'pre_addon' => '<i class="fa fa-user"></i>',
             ),
 
             'attributes' => array(
+                'class' => 'form-control',
+                'placeholder' => 'Email',
                 'size' => 32,
             ),
         ));
@@ -31,10 +33,12 @@ class Login extends Form
             'name' => 'password',
 
             'options' => array(
-                'label' => 'Password',
+                'pre_addon' => '<i class="fa fa-key"></i>',
             ),
 
             'attributes' => array(
+                'class' => 'form-control',
+                'placeholder' => 'Password',
             ),
         ));
 
@@ -46,6 +50,7 @@ class Login extends Form
             ),
 
             'attributes' => array(
+                'class' => 'btn btn-primary',
                 'value' => 'Log-in'
             ),
         ));

@@ -23,7 +23,14 @@ class FormRow extends ZendFormRow
         }
 
         $labelHtml = $element->getLabel() ? $this->view->formLabel($element) : '';
+
+        $preAddon = $element->getOption('pre_addon');
+        $preAddon = $preAddon ? '<span class="input-group-addon">'. $preAddon .'</span>' : '';
+
         $inputHtml = $this->view->formElement($element);
+
+        $inputGroupStart = $preAddon ? '<div class="input-group">' : '';
+        $inputGroupEnd = $preAddon ? '</div>' : '';
 
         $errorClass = $element->getMessages() ? 'has-error' : '';
         $errorHtml = $this->view->formElementErrors($element, array(
@@ -33,7 +40,10 @@ class FormRow extends ZendFormRow
         return <<<HTML
 <div class="form-group {$errorClass}">
     {$labelHtml}
-    {$inputHtml}
+    {$inputGroupStart}
+        {$preAddon}
+        {$inputHtml}
+    {$inputGroupEnd}
     {$errorHtml}
 </div>
 HTML;
