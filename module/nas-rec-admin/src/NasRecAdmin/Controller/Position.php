@@ -12,8 +12,8 @@ class Position extends AbstractController
     public function indexAction()
     {
         $positions = $this->entity('NasRec:Position')->createQueryBuilder('p')
-            ->orderBy('p.endDate', 'DESC')
-            ->addOrderBy('p.name')
+            ->orderBy('p.name')
+            ->addOrderBy('p.endDate', 'DESC')
 
             ->getQuery()
             ->getResult()
