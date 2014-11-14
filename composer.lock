@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2aa65f6ea82a8c502d1c8d63a5e35280",
+    "hash": "b431926df42d6ae3de11c9da39857567",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -542,6 +542,55 @@
             "time": "2014-10-06 13:22:50"
         },
         {
+            "name": "hybridauth/hybridauth",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "b32c4bf14007c80118a88c5e249f4e3151585732"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/b32c4bf14007c80118a88c5e249f4e3151585732",
+                "reference": "b32c4bf14007c80118a88c5e249f4e3151585732",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hybrid": "hybridauth/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT or GPL-3.0+)"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "Open source social sign on PHP library.",
+            "homepage": "http://hybridauth.sourceforge.net",
+            "keywords": [
+                "OpenId",
+                "facebook",
+                "google",
+                "hybridauth",
+                "login",
+                "oauth",
+                "social",
+                "twitter",
+                "yahoo"
+            ],
+            "time": "2014-07-11 20:25:12"
+        },
+        {
             "name": "radnan/rdn-console",
             "version": "v1.2.2",
             "source": {
@@ -784,16 +833,16 @@
         },
         {
             "name": "radnan/rdn-factory",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/radnan/rdn-factory.git",
-                "reference": "5ba76a782121f85394f4d1ad02989b5eba4c3d60"
+                "reference": "1da6f052598961ab700385065d2c8bf633db4828"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/radnan/rdn-factory/zipball/5ba76a782121f85394f4d1ad02989b5eba4c3d60",
-                "reference": "5ba76a782121f85394f4d1ad02989b5eba4c3d60",
+                "url": "https://api.github.com/repos/radnan/rdn-factory/zipball/1da6f052598961ab700385065d2c8bf633db4828",
+                "reference": "1da6f052598961ab700385065d2c8bf633db4828",
                 "shasum": ""
             },
             "require": {
@@ -825,7 +874,7 @@
                 "zend",
                 "zf2"
             ],
-            "time": "2013-12-26 18:54:22"
+            "time": "2014-11-13 06:54:22"
         },
         {
             "name": "radnan/rdn-router",
