@@ -1,6 +1,8 @@
 <?php /** @var Nascenia\Zend\View\Renderer\PhpRenderer $this */ ?>
 <?php /** @var NasRecPublic\Form\Application $form */ ?>
 
-<?php // todo - currently no open positions ?>
-
-<?= $this->form($form) ?>
+<?php if (count(($form->get('positions')->getValueOptions())) == 0): ?>
+    <p class="alert alert-danger">There are currently no open job listings. Please contact ....</p>
+<?php else: ?>
+    <?= $this->form($form) ?>
+<?php endif ?>
