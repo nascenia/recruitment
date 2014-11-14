@@ -38,6 +38,7 @@ class IdentityProvider
             $session->url = $_SERVER['REQUEST_URI'];
 
             $this->controller->redirect()->toRoute('nas-rec-public/auth/login');
+            $this->controller->getEvent()->stopPropagation(true);
         }
 
         return $identity;
