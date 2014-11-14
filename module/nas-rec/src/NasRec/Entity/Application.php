@@ -7,6 +7,8 @@
 
 namespace NasRec\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,10 +44,10 @@ class Application
     protected $user;
 
     /**
-     * @var Position
-     * @ORM\ManyToOne(targetEntity="Position", inversedBy="applications")
+     * @var Collection|Position[]
+     * @ORM\ManyToMany(targetEntity="Position", inversedBy="applications")
      */
-    protected $position;
+    protected $positions;
 
     /**
      * @var string
@@ -59,20 +61,32 @@ class Application
      */
     protected $createdAt;
 
-    /**
-     * @return Position
-     */
-    public function getPosition()
+    public function __construct()
     {
-        return $this->position;
+        $this->positions = new ArrayCollection;
     }
 
     /**
-     * @param Position $position
+     * @return Collection|Position[]
      */
-    public function setPosition($position)
+    public function getPositions()
     {
-        $this->position = $position;
+        return $this->positions;
+    }
+
+    /**
+     * @param Collection|Position[] $positions
+     */
+    public function setPositions($positions)
+    {
+        $this->positions = $positions;
+    }
+
+    public function getPositionNames()
+    {
+        return $this->positions->map(function (Position $position) {
+            return $position->getName();
+        })->toArray();
     }
 
     /**
