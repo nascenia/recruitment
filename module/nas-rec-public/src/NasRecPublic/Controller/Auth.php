@@ -14,30 +14,41 @@ class Auth extends AbstractController
 {
     public function loginAction()
     {
-        $form = $this->form('NasRecPublic:Login');
-
-        if ($this->request->isPost() && $form->isValid($this->request->getPost())) {
-            $data = $form->getData();
-
-            $adapter = new Adapter\Simple($this->entity(), $data['email'], $data['password']);
+        if ($this->params()->fromQuery('hauth_start') || $this->params()->fromQuery('hauth_done')) {
+            include 'vendor/hybridauth/hybridauth/hybridauth/index.php';
+        } elseif ($this->identity()) {
+            $this->redirectFromSession();
+        } else {
+            $adapter = new Adapter\Google(
+                $this->entity()
+                , $this->hybridAuth()
+            );
             $result = $this->auth()->authenticate($adapter);
 
             if (!$result->isValid()) {
-                $form->get('email')->setMessages($result->getMessages());
+                return array(
+                    'messages' => $result->getMessages(),
+                );
             } else {
-                $session = new Container('NasRecPublic_Auth');
-                return $this->redirect()->toUrl($session->url);
+                return $this->redirectFromSession();
             }
         }
-
-        return array(
-            'form' => $form,
-        );
     }
 
     public function logoutAction()
     {
         $this->auth()->clearIdentity();
         return $this->redirect()->toRoute('nas-rec-public');
+    }
+
+    protected function hybridAuth()
+    {
+        return $this->serviceLocator->get('NasRec\Authentication\HybridAuth');
+    }
+
+    protected function redirectFromSession()
+    {
+        $session = new Container('NasRecPublic_Auth');
+        return $session->url ? $this->redirect()->toUrl($session->url) : $this->redirect()->toRoute('nas-rec-public');
     }
 } 

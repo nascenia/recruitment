@@ -1,6 +1,13 @@
 <?php
 
 return array(
+    'hybrid_auth' => array(
+        'google' => array(
+            'id' => '',
+            'secret' => '',
+        ),
+    ),
+
     'rdn_db_adapters' => array(
         'adapters' => array(
             'default' => array(

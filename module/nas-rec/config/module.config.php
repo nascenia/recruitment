@@ -27,6 +27,7 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'NasRec\Authentication\Identity\IdentityProvider' => 'NasRec\Factory\Authentication\Identity\IdentityProvider',
+            'NasRec\Authentication\HybridAuth' => 'NasRec\Factory\Authentication\HybridAuth',
         ),
     ),
 
