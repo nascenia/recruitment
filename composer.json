@@ -2,6 +2,7 @@
     "require": {
         "php": ">=5.4",
         "doctrine/orm": "2.*",
+        "hybridauth/hybridauth": "*",
         "radnan/rdn-doctrine": "1.*",
         "radnan/rdn-exception": "1.*",
         "radnan/rdn-router": "1.*",
