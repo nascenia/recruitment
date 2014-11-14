@@ -87,9 +87,20 @@ class Application extends Form implements InputFilterProviderInterface
     protected function getPositionOptions()
     {
         $opts = array();
-        foreach ($this->positions->findAll() as $position) {
+
+        $positions = $this->positions->createQueryBuilder('p')
+            ->where('p.endDate >= :now')
+            ->setParameter('now', new \DateTime)
+
+            ->orderBy('p.name')
+
+            ->getQuery()
+            ->getResult()
+        ;
+        foreach ($positions as $position) {
             $opts[$position->getId()] = $position->getName();
         }
+
         return $opts;
     }
 
