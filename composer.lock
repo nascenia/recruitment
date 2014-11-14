@@ -833,16 +833,16 @@
         },
         {
             "name": "radnan/rdn-factory",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/radnan/rdn-factory.git",
-                "reference": "1da6f052598961ab700385065d2c8bf633db4828"
+                "reference": "7efb4b37ade8f2cb15c675f7b390b6338cdae91a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/radnan/rdn-factory/zipball/1da6f052598961ab700385065d2c8bf633db4828",
-                "reference": "1da6f052598961ab700385065d2c8bf633db4828",
+                "url": "https://api.github.com/repos/radnan/rdn-factory/zipball/7efb4b37ade8f2cb15c675f7b390b6338cdae91a",
+                "reference": "7efb4b37ade8f2cb15c675f7b390b6338cdae91a",
                 "shasum": ""
             },
             "require": {
@@ -874,7 +874,7 @@
                 "zend",
                 "zf2"
             ],
-            "time": "2014-11-13 06:54:22"
+            "time": "2014-11-14 06:07:27"
         },
         {
             "name": "radnan/rdn-router",
