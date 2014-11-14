@@ -39,7 +39,7 @@ class Position
 
     /**
      * @var Collection|Application[]
-     * @ORM\OneToMany(targetEntity="Application", mappedBy="position")
+     * @ORM\ManyToMany(targetEntity="Application", mappedBy="position")
      */
     protected $applications;
 

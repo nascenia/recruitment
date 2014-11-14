@@ -24,7 +24,7 @@ class Index extends AbstractController
             ->leftJoin('a.user', 'u')
             ->addSelect('u')
 
-            ->leftJoin('a.position', 'p')
+            ->leftJoin('a.positions', 'p')
             ->addSelect('p')
 
             ->getQuery()

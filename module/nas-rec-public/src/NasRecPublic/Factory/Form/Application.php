@@ -14,6 +14,10 @@ class Application extends AbstractFactory
 {
     protected function create()
     {
-        return new Form\Application($this->entity('NasRec:Application'), $this->service('RdnUpload\Container'));
+        return new Form\Application(
+            $this->entity('NasRec:Application')
+            , $this->entity('NasRec:Position')
+            , $this->service('RdnUpload\Container')
+        );
     }
 }

@@ -22,6 +22,7 @@ class Login extends Form
             ),
 
             'attributes' => array(
+                'autofocus' => true,
                 'class' => 'form-control',
                 'placeholder' => 'Email',
                 'size' => 32,

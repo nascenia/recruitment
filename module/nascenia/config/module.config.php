@@ -62,6 +62,7 @@ return array(
             'route' => 'Nascenia\Zend\Factory\View\Helper\Route',
         ),
         'invokables' => array(
+            'formMultiCheckbox' => 'Nascenia\Zend\View\Helper\FormMultiCheckbox',
             'formRow' => 'Nascenia\Zend\View\Helper\FormRow',
         ),
     ),
