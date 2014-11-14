@@ -39,7 +39,7 @@ class Position
 
     /**
      * @var Collection|Application[]
-     * @ORM\ManyToMany(targetEntity="Application", mappedBy="position")
+     * @ORM\ManyToMany(targetEntity="Application", mappedBy="positions")
      */
     protected $applications;
 
@@ -114,12 +114,13 @@ class Position
 
     public function getOpenApplications()
     {
-        $criteria = Criteria::create()
-            ->where(Criteria::expr()->eq('status', Application::STATUS_OPEN))
-            ->orWhere(Criteria::expr()->eq('status', Application::STATUS_IN_REVIEW))
-            ->orWhere(Criteria::expr()->eq('status', Application::STATUS_DECISION_PENDING))
-        ;
-        return $this->applications->matching($criteria);
+        return $this->applications->filter(function (Application $application) {
+            return in_array($application->getStatus(), array(
+                Application::STATUS_OPEN,
+                Application::STATUS_IN_REVIEW,
+                Application::STATUS_DECISION_PENDING,
+            ));
+        });
     }
 
     public function getDisplayName()
