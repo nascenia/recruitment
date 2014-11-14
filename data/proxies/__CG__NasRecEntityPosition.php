@@ -64,10 +64,10 @@ class Position extends \NasRec\Entity\Position implements \Doctrine\ORM\Proxy\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'endDate');
+            return array('__isInitialized__', 'id', 'name', 'endDate', 'applications');
         }
 
-        return array('__isInitialized__', 'id', 'name', 'endDate');
+        return array('__isInitialized__', 'id', 'name', 'endDate', 'applications');
     }
 
     /**
@@ -241,6 +241,50 @@ class Position extends \NasRec\Entity\Position implements \Doctrine\ORM\Proxy\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
 
         return parent::setName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getApplications()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApplications', array());
+
+        return parent::getApplications();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setApplications($applications)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApplications', array($applications));
+
+        return parent::setApplications($applications);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOpenApplications()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOpenApplications', array());
+
+        return parent::getOpenApplications();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDisplayName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDisplayName', array());
+
+        return parent::getDisplayName();
     }
 
 }

@@ -64,10 +64,10 @@ class Application extends \NasRec\Entity\Application implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'status', 'user', 'position', 'resume', 'createdAt');
+            return array('__isInitialized__', 'id', 'status', 'user', 'positions', 'resume', 'createdAt');
         }
 
-        return array('__isInitialized__', 'id', 'status', 'user', 'position', 'resume', 'createdAt');
+        return array('__isInitialized__', 'id', 'status', 'user', 'positions', 'resume', 'createdAt');
     }
 
     /**
@@ -176,23 +176,34 @@ class Application extends \NasRec\Entity\Application implements \Doctrine\ORM\Pr
     /**
      * {@inheritDoc}
      */
-    public function getPosition()
+    public function getPositions()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPosition', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPositions', array());
 
-        return parent::getPosition();
+        return parent::getPositions();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setPosition($position)
+    public function setPositions($positions)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPosition', array($position));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPositions', array($positions));
 
-        return parent::setPosition($position);
+        return parent::setPositions($positions);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPositionNames()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPositionNames', array());
+
+        return parent::getPositionNames();
     }
 
     /**
