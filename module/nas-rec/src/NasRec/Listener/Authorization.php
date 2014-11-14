@@ -10,6 +10,7 @@ namespace NasRec\Listener;
 use NasRec\Controller\RolesAuthorizedInterface;
 use NasRecAdmin\Controller\AbstractController;
 use RdnEvent\Listener\AbstractListener;
+use RdnException\AccessDeniedException;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\MvcEvent;
 
@@ -28,6 +29,18 @@ class Authorization extends AbstractListener
         }
 
         $roles = $controller->getAllowedRoles();
-        $controller->identity(true);
+        $identity = $controller->identity(true);
+
+        if (!$identity) {
+            return;
+        }
+
+        foreach ($roles as $role) {
+            if ($identity->hasRole($role)) {
+                return;
+            }
+        }
+
+        throw new AccessDeniedException('You are not allowed to access this page ('. $identity->getEmail() .')');
     }
 }

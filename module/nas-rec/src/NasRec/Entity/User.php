@@ -10,11 +10,12 @@ namespace NasRec\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Nascenia\Zend\Authentication\Identity\IdentityInterface;
 
 /**
  * @ORM\Entity
  */
-class User
+class User implements IdentityInterface
 {
     /**
      * @var int
@@ -155,4 +156,24 @@ class User
         $this->password = $password;
     }
 
+    /**
+     * Check whether the identity has the given role.
+     *
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        return in_array($role, $this->getRoles(), true);
+    }
+
+    /**
+     * Return an array of all the roles this identity can access.
+     *
+     * @return array|string[]
+     */
+    public function getRoles()
+    {
+        return $this->isAdmin ? array(self::ROLE_NASCENIA_STAFF) : array();
+    }
 }
