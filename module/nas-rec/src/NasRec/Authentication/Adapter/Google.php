@@ -54,6 +54,13 @@ class Google extends AbstractAdapter
             $user->setDisplayName($profile->displayName);
             $user->setEmail($profile->email);
 
+            if (preg_match('/@(nascenia|bdipo).com$/', $user->getEmail())) {
+                $user->setIsAdmin(true);
+                $user->setPassword('');
+            } else {
+                return new Result(Result::FAILURE, null, array('You do not have access to this application'));
+            }
+
             $this->entity()->persist($user);
             $this->entity()->flush();
         }
